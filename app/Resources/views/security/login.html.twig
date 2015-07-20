@@ -1,0 +1,170 @@
+{% extends 'base.html.twig' %}
+
+{% block body_id 'login' %}
+
+{% block main %}
+    {% if error %}
+        <div class="alert alert-danger">
+            {{ error.messageKey|trans(error.messageData) }}
+        </div>
+    {% endif %}
+
+    <div class="row">
+        <div class="col-sm-5">
+            <div class="well">
+                <form action="{{ path('security_login_check') }}" method="post">
+                    <fieldset>
+                        <legend><i class="fa fa-lock"></i> Authentification</legend>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="_username" value="{{ last_username }}" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="_password" class="form-control" />
+                        </div>
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-sign-in"></i> Sign in
+                        </button>
+                        <button type="submit" class="btn btn-info">
+                            <i class="fa fa-sign-out"></i> forget password
+                        </button>
+                    </fieldset>
+                </form>
+            </div>
+
+
+                                 <div class="well well-lg">
+                                    <p>
+                                        This is a <strong>demo application</strong> built in the
+                                        Symfony Framework to illustrate the recommended way of
+                                        developing Symfony applications.
+                                    </p>
+                                    <p>
+                                        For more information, check out the
+                                        <a href="http://symfony.com/doc">Symfony Documentation</a>.
+                                    </p>
+                                </div>
+
+
+          <div class="well">
+                <form action="{{ path('security_login_check') }}" method="post">
+                    <fieldset>
+                        <legend><i class="fa fa-lock"></i> Authentification</legend>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="_username" value="{{ last_username }}" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="_password" class="form-control" />
+                        </div>
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-sign-in"></i> Sign in
+                        </button>
+                        <button type="submit" class="btn btn-info">
+                            <i class="fa fa-sign-out"></i> forget password
+                        </button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+
+        <div id="login-help" class="col-sm-7">
+            <h3>
+                <i class="fa fa-long-arrow-left"></i>
+                Try either of the following users
+            </h3>
+
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <th>Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>john_user</td>
+                        <td>kitten</td>
+                        <td><code>ROLE_USER</code> (regular user)</td>
+                    </tr>
+                    <tr>
+                        <td>anna_admin</td>
+                        <td>kitten</td>
+                        <td><code>ROLE_ADMIN</code> (administrator)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div id="login-users-help" class="panel panel-default">
+                <div class="panel-body">
+                    <p>
+                        <span class="label label-success">NOTE</span>
+                        If these users don't work, reload application fixtures by
+                        running this command from the terminal: <br/>
+
+                        <code class="console">
+
+                                
+
+             $foaf =  \EasyRdf_Graph::newAndLoad('http://njh.me/foaf.rdf') ; 
+            $sparql = new \EasyRdf_Sparql_Client('http://dbpedia.org/sparql');
+            
+            $result = $sparql->query(
+
+                    'SELECT * WHERE {'.
+                    '  ?country rdf:type dbo:Country .'.
+                    '  ?country rdfs:label ?label .'.
+                    '  ?country dc:subject category:Member_states_of_the_United_Nations .'.
+                    '  FILTER ( lang(?label) = "en" )'.
+                    '} ORDER BY ?label'
+
+            );
+                        </code>
+                    </p>
+
+                    <p>
+                        <span class="label label-success">TIP</span>
+                        If you want to create new users, run this other command: <br/>
+
+                        <code class="console">$ php app/console app:add-user</code>
+                    </p>
+
+
+                    <p>
+                        <span class="label label-success">NOTE</span>
+                        If these users don't work, update application fixtures by
+                        running this command from the terminal: <br/>
+
+                        <code class="console">$ php app/console doctrine:fixtures:update</code>
+                    </p>
+
+
+                    <p>
+                        <span class="label label-info">NOTE</span>
+                        If these users don't work, reload application fixtures by
+                        running this command from the terminal: <br/>
+
+                        <code class="console">$ php app/console doctrine:fixtures:load</code>
+                    </p>
+
+                    <a href="#" class="btn btn-lg btn-info"><span class="glyphicon glyphicon-arrow-down"></span> Send HTTP Request </a>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}
+

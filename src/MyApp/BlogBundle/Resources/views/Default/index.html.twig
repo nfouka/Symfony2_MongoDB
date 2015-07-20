@@ -1,0 +1,38 @@
+
+
+{% extends 'base.html.twig' %}
+
+{% block body_id 'blog_index' %}
+
+{% block main %}
+
+<h1>MongoDB request </h1>
+
+<ul>
+    {% for products in products %}
+        <li>{{ loop.index }}   : <strong>{{ products.name }}</strong> : {{ products.price }} </li>
+     
+    {% endfor %}
+</ul>
+
+ 
+<h1>EasyRdf Basic Sparql Example</h1>
+
+<ul>
+    {% for result in name %}
+        <li><strong>{{ result.label }}</strong></li>
+         <li>{{ result.country }}</li>
+    {% endfor %}
+</ul>
+
+
+<p>Total number of countries: {{ count }} </p>
+
+ 
+{% endblock %}
+
+{% block sidebar %}
+    {{ parent() }}
+
+    {{ show_source_code(_self) }}
+{% endblock %}
